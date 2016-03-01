@@ -4,19 +4,21 @@ import processing.core.PApplet;
 
 public class GraphicsMain extends PApplet {
 
+	private static final int SIZE = 600;
+	private static final double HEIGHT = 1000;
+	private static final double G = 10.0;
 	private static final int UPS = 30;
 	private static final long RATE = Math.round(1000000000.0 / UPS);
 
 	private boolean simulate = false;
 
-	private Stone s = new Stone(1000, -10.0 / UPS / UPS);
+	private Stone s = new Stone(HEIGHT, -G / UPS / UPS);
 
 	private long nextUpdate;
 
 	@Override
 	public void settings() {
-		size(600, 600);
-
+		size(SIZE, SIZE);
 	}
 
 	public void setup() {
@@ -30,7 +32,7 @@ public class GraphicsMain extends PApplet {
 
 		stroke(255);
 
-		this.ellipse(300, 600 - (float) (s.getHeight() / 2 + 50), 10, 10);
+		this.ellipse(SIZE / 2, SIZE - (float) (s.getHeight() * 0.9 * SIZE / HEIGHT + 0.05 * SIZE), SIZE * 0.1f, SIZE * 0.1f);
 	}
 
 	public void update() {
