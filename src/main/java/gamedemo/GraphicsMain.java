@@ -8,13 +8,25 @@ public class GraphicsMain extends PApplet {
 	private static final double HEIGHT = 1000;
 	private static final double G = 10.0;
 	private static final int UPS = 30;
-	private static final long RATE = Math.round(1000000000.0 / UPS);
 
 	private boolean simulate = false;
 
 	private Stone s = new Stone(HEIGHT, -G / UPS / UPS);
 
-	private long nextUpdate;
+	private final GameLoop loop = new GameLoop(UPS, null, new GameLoop.Callbacks() {
+		public void update() {
+			GraphicsMain.this.update();
+		};
+
+		public void render() {
+			background(0);
+
+			stroke(255);
+
+			ellipse(SIZE / 2, SIZE - (float) (s.getHeight() * 0.9 * SIZE / HEIGHT + 0.05 * SIZE), SIZE * 0.1f,
+					SIZE * 0.1f);
+		}
+	});
 
 	@Override
 	public void settings() {
@@ -23,39 +35,26 @@ public class GraphicsMain extends PApplet {
 
 	public void setup() {
 		background(0);
-
 	}
 
 	public void draw() {
-		background(0);
-		update();
-
-		stroke(255);
-
-		this.ellipse(SIZE / 2, SIZE - (float) (s.getHeight() * 0.9 * SIZE / HEIGHT + 0.05 * SIZE), SIZE * 0.1f, SIZE * 0.1f);
+		loop.throttleLoop();
 	}
 
 	public void update() {
 		if (mousePressed && simulate == false && !s.isBottom()) {
 			simulate = true;
-			nextUpdate = System.nanoTime() + RATE;
 		}
 
 		if (!simulate) {
 			return;
 		}
 
-		long t = System.nanoTime();
-
-		if (nextUpdate < t) {
-			s.update();
-			nextUpdate += RATE;
-		}
+		s.update();
 
 		if (s.isBottom()) {
 			simulate = false;
 		}
-
 	}
 
 	public static void main(String[] args) {
