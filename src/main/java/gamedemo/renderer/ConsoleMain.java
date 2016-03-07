@@ -1,4 +1,7 @@
-package gamedemo;
+package gamedemo.renderer;
+
+import gamedemo.GameLoop;
+import gamedemo.model.Stone;
 
 public class ConsoleMain {
 

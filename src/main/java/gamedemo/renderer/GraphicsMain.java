@@ -1,5 +1,7 @@
-package gamedemo;
+package gamedemo.renderer;
 
+import gamedemo.GameLoop;
+import gamedemo.model.Stone;
 import processing.core.PApplet;
 
 public class GraphicsMain extends PApplet {
@@ -58,6 +60,6 @@ public class GraphicsMain extends PApplet {
 	}
 
 	public static void main(String[] args) {
-		PApplet.main(new String[] { "--present", "gamedemo.GraphicsMain" });
+		PApplet.main(new String[] { "--present", "gamedemo.renderer.GraphicsMain" });
 	}
 }

@@ -1,4 +1,4 @@
-package gamedemo;
+package gamedemo.model;
 
 public class Stone {
 	private double height;

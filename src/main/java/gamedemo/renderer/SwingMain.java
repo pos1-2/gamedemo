@@ -1,4 +1,4 @@
-package gamedemo;
+package gamedemo.renderer;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -7,6 +7,9 @@ import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 
 import javax.swing.JWindow;
+
+import gamedemo.GameLoop;
+import gamedemo.model.Stone;
 
 public class SwingMain {
 	private static final int UPS = 30;
