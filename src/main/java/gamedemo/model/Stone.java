@@ -5,9 +5,9 @@ public class Stone {
 	private double vel;
 	private double accel;
 
-	public Stone(double height, double accel) {
+	public Stone(double height, double accel, int ups) {
 		this.height = height;
-		this.accel = accel;
+		this.accel = accel / ups / ups;
 		this.vel = 0;
 	}
 

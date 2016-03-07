@@ -10,7 +10,7 @@ public class ConsoleMain {
 	private static final int UPS = 30; // updates per second
 
 	public static void main(String[] args) {
-		Stone s = new Stone(HEIGHT, -G / UPS / UPS);
+		Stone s = new Stone(HEIGHT, -G, UPS);
 
 		System.out.println("dropping the stone from " + HEIGHT + " meters...");
 

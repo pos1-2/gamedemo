@@ -32,7 +32,7 @@ public class SwingMain {
 
 		BufferStrategy b = f.getBufferStrategy();
 
-		s = new Stone(HEIGHT, -G / UPS / UPS);
+		s = new Stone(HEIGHT, -G, UPS);
 
 		System.out.println("dropping the stone from " + HEIGHT + " meters...");
 

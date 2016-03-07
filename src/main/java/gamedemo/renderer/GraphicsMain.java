@@ -13,7 +13,7 @@ public class GraphicsMain extends PApplet {
 
 	private boolean simulate = false;
 
-	private Stone s = new Stone(HEIGHT, -G / UPS / UPS);
+	private Stone s = new Stone(HEIGHT, -G, UPS);
 
 	private final GameLoop loop = new GameLoop(UPS, null, new GameLoop.Callbacks() {
 		public void update() {
