@@ -23,8 +23,6 @@ public class GraphicsMain extends PApplet {
 		public void render() {
 			background(0);
 
-			stroke(255);
-
 			ellipse(SIZE / 2, SIZE - (float) (s.getHeight() * 0.9 * SIZE / HEIGHT + 0.05 * SIZE), SIZE * 0.1f,
 					SIZE * 0.1f);
 		}
@@ -35,15 +33,17 @@ public class GraphicsMain extends PApplet {
 		size(SIZE, SIZE);
 	}
 
+	@Override
 	public void setup() {
-		background(0);
+		stroke(255);
 	}
 
+	@Override
 	public void draw() {
 		loop.throttleLoop();
 	}
 
-	public void update() {
+	private void update() {
 		if (mousePressed && simulate == false && !s.isBottom()) {
 			simulate = true;
 		}
